@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="symbols" id="symbols-container">
     <h1>Olá, sou Desenvolvedor Back-end</h1>
     <p>Especialista em PHP e soluções robustas para web</p>
   </header>
@@ -59,5 +59,21 @@
   <footer>
     <p>Contato: jhonathaferreira2101@gmail.com | GitHub: <a href="https://github.com/r7php">Aqui</a></p>
   </footer>
+
+    <script>
+    const symbols = ['{}', '()', '<>', '=>', '[]', '==', '&&', '||', ':', ';'];
+    const container = document.getElementById('symbols-container');
+
+    for (let i = 0; i < 30; i++) {
+      const span = document.createElement('span');
+      span.classList.add('symbol');
+      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      span.style.left = Math.random() * 100 + '%';
+      span.style.animationDuration = 5 + Math.random() * 10 + 's';
+      span.style.fontSize = 1 + Math.random() * 2 + 'rem';
+      container.appendChild(span);
+    }
+  </script>
+
 </body>
 </html>
