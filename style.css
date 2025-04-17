@@ -7,6 +7,7 @@ body {
   color: white;
 }
 
+
 header {
   position: relative;
   height: 250px;
@@ -46,11 +47,22 @@ header p {
     opacity: 0;
   }
 }
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.projetos img{
+   width: 500px;
+}
+
+
 
 /* Se quiser deixar as imagens e seções com um pouco mais de destaque visual */
 section {
-  padding: 2rem;
-  background: #1c1c1c;
+  width: 900px;
+  /*  padding: 2rem;*/
+  /*  background: #1c1c1c;*/
 }
 
 section h2 {
@@ -62,6 +74,7 @@ ul li {
 }
 
 footer {
+  margin: 10px;
   text-align: center;
   padding: 1rem;
   background-color: #111;
