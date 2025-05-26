@@ -4,12 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio | Dev Back-end PHP</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .img {
-      max-width: 100%;
-      height: auto;
-    }
+    .img { max-width: 100%; height: auto; }
     header#symbols-container {
       position: relative;
       padding: 3rem 1rem;
@@ -26,83 +23,126 @@
       from { top: -10%; }
       to { top: 110%; }
     }
+    .btn-custom {
+      background-color: #343a40;
+      color: white;
+    }
   </style>
 </head>
 <body>
 
-  <header id="symbols-container">
-    <div class="container">
-      <h1 class="display-5">Olá, sou Desenvolvedor Back-end</h1>
-      <p class="lead">Especialista em PHP e soluções robustas para web</p>
+<header id="symbols-container">
+  <div class="container">
+    <h1 class="display-5">Olá, sou Desenvolvedor Back-end</h1>
+    <p class="lead">Programador Web PHP & NODE</p>
+
+  </div>
+</header>
+
+<main class="container my-5">
+  <section class="mb-5">
+    <h2>Sobre Mim</h2>
+    <p>Sou um desenvolvedor back-end com mais de 3,5 anos de experiência no desenvolvimento de sistemas web robustos e escaláveis. Atuo principalmente com PHP (Laravel), mas também possuo domínio em JavaScript com Node.js. Tenho vivência com integrações via API, automações com cron jobs e deploys em cloud usando AWS EC2. Sou focado em entregar soluções eficientes e com código limpo. Gosto de trabalhar em equipe, documentar processos e aprender constantemente.</p>
+  </section>
+
+  <section class="mb-5">
+    <h2>Habilidades Técnicas</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Back-end</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">PHP (Laravel)</li>
+          <li class="list-group-item">Node.js</li>
+          <li class="list-group-item">APIs RESTful / Webhooks</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Banco de Dados</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">MySQL</li>
+          <li class="list-group-item">PostgreSQL</li>
+          <li class="list-group-item">Modelagem Relacional</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>DevOps / Ferramentas</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">AWS EC2 / SQS</li>
+          <li class="list-group-item">Git & GitHub</li>
+       
+        </ul>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container my-5">
-    <section class="mb-5">
-      <h2>Sobre Mim</h2>
-      <p>Sou desenvolvedor back-end especializado em PHP, com paixão por construir APIs performáticas, integrações seguras e sistemas escaláveis. Tenho sólida experiência com frameworks como Laravel e Node.js, além de boas práticas em modelagem de banco de dados e soluções em cloud computing.</p>
-    </section>
+  <section>
+    <h2>Projetos</h2>
 
-    <section class="mb-5">
-      <h2>Habilidades Técnicas</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">PHP (Laravel)</li>
-        <li class="list-group-item">MySQL / PostgreSQL</li>
-        <li class="list-group-item">JavaScript (Node)</li>
-        <li class="list-group-item">APIs RESTful</li>
-        <li class="list-group-item">Git & GitHub</li>
-        <li class="list-group-item">AWS EC2</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Projetos</h2>
-
+    <div class="mb-5">
+      <h3>Sistema de CRM via WhatsApp</h3>
+      <p>Plataforma para envio de mensagens ativas e receptivas com integração à API da Meta. Utiliza PHP com Laravel, autenticação com JWT e agendamento de mensagens por Cron Worker.</p>
+      <div class="row">
+        <div class="col-md-6 mb-3"><img class="img img-fluid" src="wts.PNG" alt="Sistema CRM"></div>
+        <div class="col-md-6 mb-3"><img class="img img-fluid" src="wts2.PNG" alt="Sistema CRM"></div>
+      </div>
+    </div>
       <div class="mb-5">
-        <h3>Sistema de CRM (WhatsApp)</h3>
-        <p>Aplicação web feita em PHP e JavaScript. Esse sistema é capaz de fazer disparos de mensagens ativas e receptivas usando a API da Meta.</p>
-        <div class="row">
-          <div class="col-md-6 mb-3"><img class="img img-fluid" src="wts.PNG" alt="Sistema CRM"></div>
-          <div class="col-md-6 mb-3"><img class="img img-fluid" src="wts2.PNG" alt="Sistema CRM"></div>
-        </div>
+      <h3>Projeto de loja virtual</h3>
+      <p>Site de loja virtual local</p>
+      <div class="row">
+        <div class="col-md-6 mb-3"><img class="img img-fluid" src="b71.PNG" alt=""></div>
+         <div class="col-md-6 mb-3"><img class="img img-fluid" src="b72.PNG" alt=""></div>
+         <div class="col-md-6 mb-3"><img class="img img-fluid" src="b73.PNG" alt=""></div>
       </div>
 
-      <div class="mb-5">
-        <h3>Site de filmes</h3>
-        <p>Projeto de busca de filmes usando a API da swapi com Node.js.</p>
-        <div class="row">
-          <div class="col-md-6 mb-3"><img class="img img-fluid" src="filmes1.PNG" alt="Site de filmes"></div>
-          <div class="col-md-6 mb-3"><img class="img img-fluid" src="filme2.PNG" alt="Site de filmes"></div>
-        </div>
+    </div>
+
+    <div class="mb-5">
+      <h3>Busca de Filmes (Node.js)</h3>
+      <p>Aplicação em Node.js que consome a API pública SWAPI para listar e buscar filmes. Utiliza Express.js, Axios e renderização com EJS.</p>
+      <div class="row">
+        <div class="col-md-6 mb-3"><img class="img img-fluid" src="filmes1.PNG" alt="Site de filmes"></div>
+        <div class="col-md-6 mb-3"><img class="img img-fluid" src="filme2.PNG" alt="Site de filmes"></div>
       </div>
+    </div>
 
-      <div class="mb-5">
-        <h3>Site de Petshop em Node</h3>
-        <div class="row">
-          <div class="col-md-6 mb-3"><img class="img img-fluid" src="dog1.PNG" alt="Petshop"></div>
-        </div>
+    <div class="mb-5">
+      <h3>PetShop - Portal Web</h3>
+      <p>Site institucional feito com Node.js e Bootstrap, com funcionalidades de agendamento, formulário de contato e galeria de pets.</p>
+      <div class="row">
+        <div class="col-md-6 mb-3"><img class="img img-fluid" src="dog1.PNG" alt="Petshop"></div>
       </div>
-    </section>
-  </main>
+    </div>
 
-  <footer class="bg-light py-4 text-center">
-    <p>Contato: jhonathaferreira2101@gmail.com | GitHub: <a href="https://github.com/r7php">Aqui</a></p>
-  </footer>
 
-  <script>
-    const symbols = ['JS', 'PHP', '{}', '()', '<>', '=>', '[]', '==', '&&', '||', ':', ';'];
-    const container = document.getElementById('symbols-container');
 
-    for (let i = 0; i < 30; i++) {
-      const span = document.createElement('span');
-      span.classList.add('symbol');
-      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-      span.style.left = Math.random() * 100 + '%';
-      span.style.animationDuration = 5 + Math.random() * 10 + 's';
-      span.style.fontSize = 1 + Math.random() * 2 + 'rem';
-      container.appendChild(span);
-    }
-  </script>
+    
+
+
+  </section>
+</main>
+
+<footer class="bg-light py-4 text-center">
+  <p>
+     <strong>Contato:</strong> jhonathaferreira2101@gmail.com<br>
+     <strong>GitHub:</strong> <a href="https://github.com/r7php" target="_blank">github.com/r7php</a> |
+    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jhonatha-ferreira-595349185/" target="_blank">linkedin.com/in/seu-perfil</a>
+  </p>
+</footer>
+
+<script>
+  const symbols = ['JS', 'PHP', '{}', '()', '<>', '=>', '[]', '==', '&&', '||', ':', ';'];
+  const container = document.getElementById('symbols-container');
+  for (let i = 0; i < 30; i++) {
+    const span = document.createElement('span');
+    span.classList.add('symbol');
+    span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    span.style.left = Math.random() * 100 + '%';
+    span.style.animationDuration = 5 + Math.random() * 10 + 's';
+    span.style.fontSize = 1 + Math.random() * 2 + 'rem';
+    container.appendChild(span);
+  }
+</script>
 
 </body>
 </html>
