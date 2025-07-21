@@ -6,31 +6,13 @@
   <title>Jhonatha Ferreira | Dev Back-end PHP</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-      .image-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-  }
-  .image-modal img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  .image-modal.close {
-    cursor: pointer;
-  }
-  
     body {
       font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
+      background: #f8f9fa;
+      overflow-x: hidden;
     }
+
     header#symbols-container {
       position: relative;
       padding: 5rem 1rem;
@@ -38,139 +20,162 @@
       color: #fff;
       text-align: center;
       overflow: hidden;
+      animation: fadeSlide 1.5s ease-out;
     }
-    .img_perfil{
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Texto digitando */
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #0d6efd;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .1em;
+      animation: typing 3.5s steps(40, end), blink-caret 0.8s step-end infinite;
+      display: inline-block;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #0d6efd; }
+    }
+
+    .img_perfil {
       margin-left: 10px; width:7%; border-radius: 90px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-    section{
-     
+    .img_perfil:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    section {
       width: 80%;
-      align-content: center;
-      justify-content: center;
       margin-left: 10%;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
     }
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.6s; }
+    section:nth-of-type(3) { animation-delay: 0.9s; }
+    section:nth-of-type(4) { animation-delay: 1.2s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .symbol {
       position: absolute;
-      color: rgba(255, 255, 255, 0.1);
-      animation: float 15s linear infinite;
+      color: rgba(255, 255, 255, 0.08);
+      animation: float 15s linear infinite, rotate 12s linear infinite;
+      will-change: transform;
     }
     @keyframes float {
-      from { top: -10%; }
-      to { top: 110%; }
+      from { transform: translateY(-120%) translateX(0); }
+      to { transform: translateY(120%) translateX(0); }
     }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Botões com animação pulse */
     .btn-custom {
       background-color: #0d6efd;
       color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-weight: bold;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .line{
-      width: 80px;
-      border-bottom: 2px solid #0d6efd;
-      display: inline-block;
-      padding-bottom: .3rem;
-      margin-top: 20px;
+    .btn-custom:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(13,110,253,0.4);
     }
-    h2 {
-      margin-top: 2rem;
-      border-bottom: 2px solid #0d6efd;
-      display: inline-block;
-      padding-bottom: .3rem;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(13,110,253,0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(13,110,253,0); }
+      100% { box-shadow: 0 0 0 0 rgba(13,110,253,0); }
     }
+
+    .img-fluid {
+      transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    }
+    .img-fluid:hover {
+
+      transform: scale(1.05);
+      filter: brightness(1.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .image-modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
     footer a {
       color: #0d6efd;
       text-decoration: none;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    /* Transição global */
-* {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Fade-in animado para header */
-header#symbols-container {
-  animation: fadeSlide 1.5s ease-out;
-}
-
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Botão com animação */
-.btn-custom {
-  background-color: #0d6efd;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.btn-custom:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(13, 110, 253, 0.3);
-}
-
-/* Fade nas seções ao carregar */
-section {
-  animation: fadeInSection 1.2s ease;
-}
-
-@keyframes fadeInSection {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Zoom no hover de imagens */
-.img-fluid:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-/* Títulos com leve animação */
-h2 {
-  animation: fadeInTitle 1.4s ease;
-}
-
-@keyframes fadeInTitle {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+    footer a:hover { text-decoration: underline; }
 
     @media (max-width: 800px) {
-      .img_perfil{
-        display: none;
-      }
-      .line{
-        display: none;
+      .img_perfil, .line { display: none; }
+    }
+
+    /* Animações nos textos das tecnologias */
+    .list-group-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInTech 0.8s forwards;
+      animation-delay: var(--delay, 0s);
+    }
+    @keyframes slideInTech {
+      to {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
+ /*   .list-group-item:hover {
+      animation: glow 1.5s infinite alternate;
+      cursor: pointer;
+      color: black;
+    }
+    @keyframes glow {
+      from { color: black; text-shadow: 0 0 5px #0d6efd; }
+      to { color: black; text-shadow: 0 0 15px #0d6efd; }
+    }*/
   </style>
 </head>
 <body>
 
 <header id="symbols-container">
   <div class="container"> 
-    <h1 class="display-4 fw-bold">Olá, sou Jhonatha Ferreira</h1>
+    <h1 class="display-4 fw-bold"><span class="typewriter">Olá, sou Jhonatha Ferreira</span></h1>
     <p class="lead mb-0">Desenvolvedor Back-end</p>
   </div>
 </header>
@@ -178,7 +183,7 @@ h2 {
 <main class="container my-5">
   <section>
     <h2>Sobre Mim</h2>
-    <img class="img_perfil"  src="img/img_perfil.PNG" alt="Sistema CRM">
+    <img class="img_perfil" src="img/img_perfil.PNG" alt="Sistema CRM">
     <div class="line"></div>
     <p>Sou um desenvolvedor back-end com mais de 4 anos de experiência em desenvolvimento de aplicações web escaláveis. Trabalho principalmente com <strong>PHP (Laravel)</strong> e <strong>Node.js</strong>. Tenho experiência sólida com integrações via API, automações com <strong>Cron Jobs</strong> e infraestrutura com <strong>AWS (EC2, SQS)</strong>. Sou comprometido com a qualidade do código, documentação clara e trabalho em equipe.</p>
   </section>
@@ -189,31 +194,32 @@ h2 {
       <div class="col-md-4">
         <h5>Back-end</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">PHP (Laravel)</li>
-                <li class="list-group-item">Python (Flask API)</li>
-          <li class="list-group-item">Node.js</li>
-          <li class="list-group-item">RESTful APIs / Webhooks</li>
+          <li class="list-group-item" style="--delay: 0.1s;">PHP (Laravel)</li>
+          <li class="list-group-item" style="--delay: 0.2s;">Python (Flask API)</li>
+          <li class="list-group-item" style="--delay: 0.3s;">Node.js</li>
+          <li class="list-group-item" style="--delay: 0.4s;">RESTful APIs / Webhooks</li>
         </ul>
       </div>
       <div class="col-md-4">
         <h5>Banco de Dados</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">MySQL</li>
-          <li class="list-group-item">PostgreSQL</li>
-           <li class="list-group-item">SQL SERVER</li>
+          <li class="list-group-item" style="--delay: 0.1s;">MySQL</li>
+          <li class="list-group-item" style="--delay: 0.2s;">PostgreSQL</li>
+          <li class="list-group-item" style="--delay: 0.3s;">SQL SERVER</li>
         </ul>
       </div>
       <div class="col-md-4">
         <h5>DevOps & Ferramentas</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">AWS EC2 / SQS / S3 / Lambda</li>
-          <li class="list-group-item">Git / GitHub</li>
-          <li class="list-group-item">Docker / Composer / NPM</li>
+          <li class="list-group-item" style="--delay: 0.1s;">AWS EC2 / SQS / S3 / Lambda</li>
+          <li class="list-group-item" style="--delay: 0.2s;">Git / GitHub</li>
+          <li class="list-group-item" style="--delay: 0.3s;">Docker / Composer / NPM</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- Projetos seguem iguais -->
   <section>
     <h2>Projetos em Destaque</h2>
 
@@ -226,6 +232,17 @@ h2 {
       </div>
     </article>
 
+
+    <article class="mb-5">
+      <h4>Streaming de filmes</h4>
+      <p>Aplicação de streaming de filmes que consome a api da vidsrc para exibir filmes. Construído em PHP e JS puro.</p>
+      <div class="row">
+        <div class="col-md-6 mb-3"><img class="img-fluid" src="img/filmes1.PNG" alt="Busca de filmes"></div>
+        <div class="col-md-6 mb-3"><img class="img-fluid" src="img/filme2.PNG" alt="Busca de filmes"></div>
+        <div class="col-md-6 mb-3"><img class="img-fluid" src="img/filme3.PNG" alt="Busca de filmes"></div>
+      </div>
+    </article>
+    
     <article class="mb-5">
       <h4>Loja Virtual</h4>
       <p>Projeto de loja online para comércio local. Sistema simples e funcional, com categorias, carrinho e área administrativa.</p>
@@ -236,15 +253,6 @@ h2 {
       </div>
     </article>
 
-    <article class="mb-5">
-      <h4>Streaming de filmes</h4>
-      <p>Aplicação de streaming de filmes que consome a api da vidsrc para exibir filmes. Construído em PHP e JS puro</p>
-      <div class="row">
-        <div class="col-md-6 mb-3"><img class="img-fluid" src="img/filmes1.PNG" alt="Busca de filmes"></div>
-        <div class="col-md-6 mb-3"><img class="img-fluid" src="img/filme2.PNG" alt="Busca de filmes"></div>
-          <div class="col-md-6 mb-3"><img class="img-fluid" src="img/filme3.PNG" alt="Busca de filmes"></div>
-      </div>
-    </article>
 
     <article class="mb-5">
       <h4>PetShop - Portal Web</h4>
@@ -265,27 +273,27 @@ h2 {
 </footer>
 
 <script>
-   const modal = document.createElement('div');
+  // Modal para ampliar imagens
+  const modal = document.createElement('div');
   modal.classList.add('image-modal');
   modal.innerHTML = '<img src="" alt="Imagem Ampliada">';
   document.body.appendChild(modal);
-
   const modalImg = modal.querySelector('img');
 
-  // Adiciona evento a todas as imagens
   document.querySelectorAll('.img-fluid').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', () => {
       modalImg.src = img.src;
-      modal.style.display = 'flex';
+      modal.classList.add('show');
     });
   });
 
-  // Fecha ao clicar no fundo ou na imagem
   modal.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.remove('show');
+    setTimeout(() => { modal.style.display = 'none'; }, 400);
   });
 
+  // Símbolos animados
   const symbols = ['JS', 'PHP', '{}', '()', '<>', '=>', '[]', '==', '&&', '||', ':', ';'];
   const container = document.getElementById('symbols-container');
   for (let i = 0; i < 30; i++) {
