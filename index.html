@@ -245,11 +245,12 @@
 
     <article class="mb-5">
       <h4>Loja Virtual</h4>
-      <p>Projeto de loja online para comércio local. Sistema simples e funcional, com categorias, carrinho e área administrativa.</p>
+      <p>Projeto de loja online para comércio local. Sistema simples e funcional, com categorias, carrinho e área administrativa e gateway de pagamentos com Stripe.</p>
       <div class="row">
         <div class="col-md-4 mb-3"><img class="img-fluid" src="img/b71.PNG" alt="Loja virtual"></div>
         <div class="col-md-4 mb-3"><img class="img-fluid" src="img/b72.PNG" alt="Loja virtual"></div>
         <div class="col-md-4 mb-3"><img class="img-fluid" src="img/b73.PNG" alt="Loja virtual"></div>
+          <div class="col-md-4 mb-3"><img class="img-fluid" src="img/b74.PNG" alt="Loja virtual"></div>
       </div>
     </article>
 
@@ -274,19 +275,40 @@
 
 <script>
   // Modal para ampliar imagens
-  const modal = document.createElement('div');
+   const modal = document.createElement('div');
   modal.classList.add('image-modal');
   modal.innerHTML = '<img src="" alt="Imagem Ampliada">';
   document.body.appendChild(modal);
+
   const modalImg = modal.querySelector('img');
+
+  // Animação de zoom para a imagem
+  modalImg.style.transition = 'transform 0.3s ease';
+  modalImg.style.maxWidth = '90%';
+  modalImg.style.maxHeight = '90%';
+  modalImg.style.transform = 'scale(0.8)';
 
   document.querySelectorAll('.img-fluid').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // Garante que fique visível
       modalImg.src = img.src;
-      modal.classList.add('show');
+      requestAnimationFrame(() => {
+        modal.classList.add('show');
+        modalImg.style.transform = 'scale(1)'; // Zoom ao abrir
+      });
     });
   });
+
+  // Fecha modal ao clicar em qualquer lugar
+  modal.addEventListener('click', () => {
+    modalImg.style.transform = 'scale(0.8)'; // Faz o zoom-out
+    modal.classList.remove('show');
+    setTimeout(() => { 
+      modal.style.display = 'none'; 
+    }, 300);
+  });
+
 
   modal.addEventListener('click', () => {
     modal.classList.remove('show');
